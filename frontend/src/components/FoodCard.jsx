@@ -1,155 +1,118 @@
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
-import CustomizationModal from "./CustomizationModal";
 
-const categoryImages = {
-  pizza: "/images/pizza.png",
-  starters: "/images/starters.png",
-  coffee: "/images/coffee.png",
-  frappes: "/images/coffee.png",
-  matcha: "/images/matcha.png",
-  refreshers: "/images/matcha.png",
-  "hot-drinks": "/images/coffee.png",
-  "hot-coffee": "/images/coffee.png",
-  "iced-tea": "/images/matcha.png",
-  desserts: "/images/desserts.png",
-  cookies: "/images/desserts.png",
-  dips: "/images/starters.png",
-  salads: "/images/starters.png",
+const CATEGORY_EMOJI = {
+  pizza: "🍕", starters: "🥖", coffee: "☕", frappes: "🧋",
+  matcha: "🍵", refreshers: "🍹", "hot-drinks": "🍫", "hot-coffee": "☕",
+  "iced-tea": "🧊", desserts: "🍰", cookies: "🍪", dips: "🥣", salads: "🥗",
 };
 
-export default function FoodCard({ item }) {
+export default function FoodCard({ item, index = 0 }) {
   const { addItem } = useCart();
-  const [isAdded, setIsAdded] = useState(false);
-  const [showCustomizer, setShowCustomizer] = useState(false);
+  const [added, setAdded] = useState(false);
 
   const handleAdd = (e) => {
-    e?.stopPropagation();
-    if (item.customizations) {
-      setShowCustomizer(true);
-    } else {
-      confirmAdd({});
-    }
+    e.stopPropagation();
+    addItem({ ...item, menuItemId: item.id, quantity: 1 });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1800);
   };
 
-  const confirmAdd = (customization) => {
-    addItem({
-      menuItemId: item.id,
-      name: item.name,
-      price: item.price,
-      quantity: 1,
-      customization,
-    });
-    setIsAdded(true);
-    setShowCustomizer(false);
-    setTimeout(() => setIsAdded(false), 1200);
-  };
-
-  const imageSrc = categoryImages[item.category] || "/images/pizza.png";
+  const emoji = CATEGORY_EMOJI[item.category] || "🍽️";
 
   return (
-    <>
-      {/* Spec: Card = #FFFFFF, 16px border-radius, shadow Y:4px Blur:12px */}
-      <div
-        onClick={handleAdd}
-        style={{
-          background: "#FFFFFF",
-          borderRadius: "16px",
+    <div
+      className="stagger-item"
+      onClick={handleAdd}
+      style={{
+        background: "#1C1C1C",
+        borderRadius: "16px",
+        border: "1px solid rgba(255,255,255,0.06)",
+        overflow: "hidden",
+        cursor: "pointer",
+        transition: "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, box-shadow 0.3s ease",
+        display: "flex",
+        flexDirection: "column",
+        animationDelay: `${index * 50}ms`, // Staggered entry
+      }}
+      onMouseEnter={e => { 
+        e.currentTarget.style.transform = "translateY(-4px) scale(1.02)"; 
+        e.currentTarget.style.borderColor = "rgba(200,149,108,0.4)";
+        e.currentTarget.style.boxShadow = "0 12px 32px rgba(0,0,0,0.5)";
+      }}
+      onMouseLeave={e => { 
+        e.currentTarget.style.transform = "translateY(0) scale(1)"; 
+        e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
+        e.currentTarget.style.boxShadow = "none";
+      }}
+    >
+      {/* Image / Emoji area */}
+      <div style={{
+        height: "120px",
+        background: "linear-gradient(135deg, #1E1A18, #2A2218)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "48px",
+        position: "relative",
+      }}>
+        {emoji}
+        {added && (
+          <div style={{
+            position: "absolute",
+            inset: 0,
+            background: "rgba(200,149,108,0.12)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "28px",
+            animation: "fade-up 0.3s ease",
+          }}>
+            ✓
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div style={{ padding: "14px 14px 16px", flex: 1, display: "flex", flexDirection: "column", gap: "8px" }}>
+        <p style={{
+          fontSize: "14px",
+          fontWeight: 500,
+          color: "#F5F0E8",
+          lineHeight: "1.4",
+          display: "-webkit-box",
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: "vertical",
           overflow: "hidden",
-          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.06)",
-          cursor: "pointer",
-          transition: "transform 150ms ease",
-        }}
-        onMouseDown={(e) => (e.currentTarget.style.transform = "scale(0.98)")}
-        onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
-        onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-      >
-        {/* Spec: Image top, 140-160px height, full width, cover fit, top corners rounded */}
-        <div
-          style={{
-            width: "100%",
-            height: "160px",
-            overflow: "hidden",
-          }}
-        >
-          <img
-            src={imageSrc}
-            alt={item.name}
-            loading="lazy"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              display: "block",
-            }}
-          />
-        </div>
+        }}>
+          {item.name}
+        </p>
 
-        {/* Spec: Content padding 16px */}
-        <div style={{ padding: "16px" }}>
-          {/* Spec: Name = Outfit, 16px, Medium, #1E1E1E, max 2 lines */}
-          <h3
-            style={{
-              fontFamily: "'Outfit', sans-serif",
-              fontSize: "16px",
-              fontWeight: 500,
-              lineHeight: "140%",
-              color: "#1E1E1E",
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              marginBottom: "8px", /* Spec: Name → Price: 8px */
-            }}
-          >
-            {item.name}
-          </h3>
-
-          {/* Spec: Price = Outfit, 14px, Regular, #444444 */}
-          <p
-            style={{
-              fontFamily: "'Outfit', sans-serif",
-              fontSize: "14px",
-              fontWeight: 400,
-              lineHeight: "140%",
-              color: "#444444",
-              marginBottom: "16px", /* Spec: Price → Button: 16px */
-            }}
-          >
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto" }}>
+          <span style={{ fontSize: "15px", fontWeight: 600, color: "#C8956C" }}>
             ₹{item.price}
-          </p>
-
-          {/* Spec: Add Button = Primary button, height 40px, full width, 12px radius */}
-          {/* Spec: Font = Outfit, 16px, Medium, +1% letter spacing */}
+          </span>
           <button
             onClick={handleAdd}
             style={{
-              width: "100%",
-              height: "40px",
-              borderRadius: "12px",
+              width: "32px", height: "32px",
+              borderRadius: "8px",
               border: "none",
-              background: isAdded ? "#F6F6F6" : "#91564E",
-              color: isAdded ? "#444444" : "#FFFFFF",
-              fontFamily: "'Outfit', sans-serif",
-              fontSize: "16px",
-              fontWeight: 500,
-              letterSpacing: "0.01em",
-              cursor: "pointer",
-              transition: "all 150ms ease",
+              background: added ? "rgba(200,149,108,0.2)" : "rgba(200,149,108,0.1)",
+              color: "#C8956C",
+              fontSize: "18px",
+              fontWeight: 300,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              transition: "all 0.2s ease",
+              lineHeight: 1,
             }}
           >
-            {isAdded ? "Added ✓" : "Add"}
+            {added ? "✓" : "+"}
           </button>
         </div>
       </div>
-
-      {showCustomizer && (
-        <CustomizationModal
-          item={item}
-          onConfirm={confirmAdd}
-          onCancel={() => setShowCustomizer(false)}
-        />
-      )}
-    </>
+    </div>
   );
 }

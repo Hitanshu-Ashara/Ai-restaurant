@@ -1,59 +1,106 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function IdleScreen() {
   const navigate = useNavigate();
+  const [tapped, setTapped] = useState(false);
+
+  const handleTap = () => {
+    setTapped(true);
+    setTimeout(() => navigate("/menu"), 600);
+  };
 
   return (
     <div
-      className="flex flex-col items-center justify-center h-screen cursor-pointer select-none"
-      style={{ background: "var(--color-bg-primary)" }}
-      onClick={() => navigate("/menu")}
+      onClick={handleTap}
+      style={{
+        height: "100vh",
+        background: "#111111",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "pointer",
+        position: "relative",
+        overflow: "hidden",
+        userSelect: "none",
+      }}
     >
-      <div className="flex flex-col items-center gap-6 animate-fade-in">
-        {/* Greeting */}
-        <h2
-          className="text-2xl"
-          style={{ fontFamily: "'Instrument Serif', serif", color: "var(--color-text-primary)" }}
-        >
-          Welcome to D&D Café
-        </h2>
+      {/* Background ambient glow */}
+      <div style={{
+        position: "absolute",
+        width: "600px", height: "600px",
+        borderRadius: "50%",
+        background: "radial-gradient(circle, rgba(200,149,108,0.08) 0%, transparent 70%)",
+        top: "50%", left: "50%",
+        transform: "translate(-50%, -50%)",
+        pointerEvents: "none",
+      }} />
 
-        {/* Main prompt */}
-        <h1
-          className="text-4xl text-center leading-tight"
-          style={{ fontFamily: "'Instrument Serif', serif", color: "var(--color-text-primary)" }}
-        >
-          What would you like<br />to order?
-        </h1>
-
-        {/* Mic icon */}
-        <div
-          className="w-16 h-16 rounded-full flex items-center justify-center mt-6 animate-soft-pulse"
-          style={{ color: "var(--color-accent)" }}
-        >
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
-            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-            <line x1="12" x2="12" y1="19" y2="22"/>
-          </svg>
+      {/* Logo area */}
+      <div style={{ textAlign: "center", animation: "fade-up 0.8s ease forwards" }}>
+        <div style={{
+          width: "80px", height: "80px",
+          borderRadius: "24px",
+          background: "linear-gradient(135deg, #C8956C, #9B6B45)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          margin: "0 auto 32px",
+          fontSize: "36px",
+          boxShadow: "0 0 60px rgba(200,149,108,0.3)",
+        }}>
+          ☕
         </div>
 
-        {/* Hint */}
-        <p
-          className="text-sm animate-breathing"
-          style={{ color: "var(--color-text-label)" }}
-        >
-          Tap anywhere to start
+        <h1 style={{
+          fontFamily: "'Playfair Display', serif",
+          fontSize: "52px",
+          fontWeight: 500,
+          color: "#F5F0E8",
+          letterSpacing: "-0.02em",
+          lineHeight: "1.1",
+          marginBottom: "12px",
+        }}>
+          D&D Café
+        </h1>
+        <p style={{
+          fontSize: "16px",
+          color: "#9A9080",
+          letterSpacing: "0.15em",
+          textTransform: "uppercase",
+          fontWeight: 400,
+          marginBottom: "64px",
+        }}>
+          AI Table Ordering
         </p>
-      </div>
 
-      {/* Bottom hint */}
-      <p
-        className="absolute bottom-6 text-xs"
-        style={{ color: "var(--color-text-label)" }}
-      >
-        Voice assistant is always active for faster ordering
-      </p>
+        {/* Tap indicator */}
+        <div style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "16px",
+          opacity: tapped ? 0 : 1,
+          transition: "opacity 0.3s ease",
+        }}>
+          <div style={{
+            width: "64px", height: "64px",
+            borderRadius: "50%",
+            border: "2px solid rgba(200,149,108,0.4)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            animation: "pulse-ring 2s infinite",
+          }}>
+            <div style={{
+              width: "40px", height: "40px",
+              borderRadius: "50%",
+              background: "rgba(200,149,108,0.15)",
+              border: "1px solid rgba(200,149,108,0.6)",
+            }} />
+          </div>
+          <p style={{ fontSize: "14px", color: "#5A5248", letterSpacing: "0.1em" }}>
+            TAP ANYWHERE TO BEGIN
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

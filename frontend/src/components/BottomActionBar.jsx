@@ -1,74 +1,49 @@
 import { useCart } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 export default function BottomActionBar({ onCartOpen }) {
   const { getTotal, getItemCount } = useCart();
-  const total = getTotal();
+  const navigate = useNavigate();
   const count = getItemCount();
+  const total = getTotal();
 
   if (count === 0) return null;
 
   return (
-    /* Spec: 64px height, #FFFFFF, 1px solid #EAEAEA top border, no shadow */
-    /* Spec: Left = Total Price (Outfit 16px Medium #1E1E1E), Right = subtle CTA */
-    <div
-      style={{
-        height: "64px",
-        background: "#FFFFFF",
-        borderTop: "1px solid #EAEAEA",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        paddingLeft: "24px",
-        paddingRight: "24px",
-        zIndex: 30,
-      }}
+    <div style={{
+      position: "fixed",
+      bottom: "24px",
+      left: "50%",
+      transform: "translateX(-50%)",
+      width: "calc(100% - 48px)",
+      maxWidth: "960px",
+      background: "#C8956C",
+      borderRadius: "16px",
+      padding: "0 20px",
+      height: "60px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      boxShadow: "0 8px 32px rgba(200,149,108,0.35)",
+      zIndex: 100,
+      cursor: "pointer",
+      animation: "fade-up 0.3s ease",
+    }}
+      onClick={() => navigate("/confirmation")}
     >
-      <div>
-        {/* Spec: Item count = 12px, #666666 */}
-        <p
-          style={{
-            fontFamily: "'Outfit', sans-serif",
-            fontSize: "12px",
-            fontWeight: 400,
-            color: "#666666",
-            lineHeight: "140%",
-          }}
-        >
-          {count} {count === 1 ? "item" : "items"}
-        </p>
-        {/* Spec: Total = Outfit 16px Medium #1E1E1E */}
-        <p
-          style={{
-            fontFamily: "'Outfit', sans-serif",
-            fontSize: "16px",
-            fontWeight: 500,
-            color: "#1E1E1E",
-            lineHeight: "140%",
-          }}
-        >
-          ₹{total}
-        </p>
+      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <div style={{
+          width: "28px", height: "28px",
+          borderRadius: "8px",
+          background: "rgba(0,0,0,0.15)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontSize: "13px", fontWeight: 700, color: "#fff",
+        }}>
+          {count}
+        </div>
+        <span style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>View Order</span>
       </div>
-      {/* Spec: Optional subtle CTA, small, not visually dominant */}
-      <button
-        onClick={onCartOpen}
-        style={{
-          height: "40px",
-          padding: "0 24px",
-          borderRadius: "12px",
-          border: "1px solid #EAEAEA",
-          background: "transparent",
-          fontFamily: "'Outfit', sans-serif",
-          fontSize: "16px",
-          fontWeight: 500,
-          color: "#91564E",
-          letterSpacing: "0.01em",
-          cursor: "pointer",
-          transition: "all 150ms ease",
-        }}
-      >
-        View
-      </button>
+      <span style={{ fontSize: "16px", fontWeight: 700, color: "#fff" }}>₹{total}</span>
     </div>
   );
 }

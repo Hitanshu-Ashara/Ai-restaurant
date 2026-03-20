@@ -1,39 +1,31 @@
 export default function CategoryFilter({ categories, activeCategory, onSelect }) {
   return (
-    /* Spec: Horizontal scrollable, 48-64px height, 16px spacing between categories */
-    /* Spec: Positioned below header, 24px left/right margin */
-    <div
-      style={{
-        display: "flex",
-        gap: "16px",
-        overflowX: "auto",
-        scrollbarWidth: "none",
-        minHeight: "48px",
-        alignItems: "center",
-      }}
-    >
+    <div style={{
+      display: "flex",
+      gap: "8px",
+      overflowX: "auto",
+      scrollbarWidth: "none",
+      paddingBottom: "4px",
+    }}>
       {categories.map((cat) => {
-        const isActive = cat.id === activeCategory;
+        const isActive = activeCategory === cat.id;
         return (
-          /* Spec: Button height 48px, radius 12px, Outfit 16px Medium, +1% letter spacing */
           <button
             key={cat.id}
             onClick={() => onSelect(cat.id)}
             style={{
-              height: "48px",
-              padding: "0 24px",
-              borderRadius: "12px",
-              whiteSpace: "nowrap",
               flexShrink: 0,
-              border: isActive ? "none" : "1px solid #EAEAEA",
-              background: isActive ? "#91564E" : "transparent",
-              color: isActive ? "#FFFFFF" : "#666666",
-              fontFamily: "'Outfit', sans-serif",
-              fontSize: "16px",
-              fontWeight: 500,
-              letterSpacing: "0.01em",
+              padding: "8px 18px",
+              borderRadius: "100px",
+              border: isActive ? "1px solid rgba(200,149,108,0.6)" : "1px solid rgba(255,255,255,0.07)",
+              background: isActive ? "rgba(200,149,108,0.15)" : "rgba(255,255,255,0.03)",
+              color: isActive ? "#C8956C" : "#9A9080",
+              fontSize: "13px",
+              fontWeight: isActive ? 600 : 400,
               cursor: "pointer",
-              transition: "all 150ms ease",
+              transition: "all 0.2s ease",
+              letterSpacing: "0.02em",
+              whiteSpace: "nowrap",
             }}
           >
             {cat.label}

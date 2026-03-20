@@ -1,304 +1,103 @@
-import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import { speak } from "../utils/speech";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Confirmation() {
+  const { items, getTotal, clearCart, updateQty } = useCart();
   const navigate = useNavigate();
-  const { items, getTotal, clearCart } = useCart();
-  const [isConfirmed, setIsConfirmed] = useState(false);
-  const [orderId] = useState(() => `ORD-${Date.now().toString(36).toUpperCase()}`);
 
   const handleConfirm = () => {
-    setIsConfirmed(true);
-    speak("Your order has been placed. Thank you for dining with us.");
-    setTimeout(() => clearCart(), 3000);
+    clearCart();
+    navigate("/");
   };
 
-  if (isConfirmed) {
-    return (
-      <div
-        style={{
-          height: "100vh",
-          background: "#FFF8E3",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingLeft: "24px",
-          paddingRight: "24px",
-          fontFamily: "'Outfit', sans-serif",
-        }}
-      >
-        <div style={{ maxWidth: "480px", width: "100%", textAlign: "center", animation: "fade-in 0.5s ease-out" }}>
-          <h1
-            style={{
-              fontFamily: "'Instrument Serif', serif",
-              fontSize: "40px",
-              fontWeight: 400,
-              color: "#1E1E1E",
-              marginBottom: "16px",
-            }}
-          >
-            Order Placed
-          </h1>
-          <p style={{ fontSize: "18px", color: "#444444", marginBottom: "32px" }}>
-            Your order is being prepared.<br />We'll notify you when it's ready.
-          </p>
-          <div
-            style={{
-              padding: "12px 24px",
-              borderRadius: "12px",
-              background: "#FFFFFF",
-              border: "1px solid #EAEAEA",
-              display: "inline-block",
-              marginBottom: "40px",
-            }}
-          >
-            <p style={{ fontSize: "12px", color: "#666666", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-              Order ID
-            </p>
-            <p style={{ fontSize: "16px", fontWeight: 500, color: "#1E1E1E", fontFamily: "monospace" }}>
-              {orderId}
-            </p>
-          </div>
-          <div>
-            <button
-              onClick={() => navigate("/")}
-              style={{
-                height: "48px",
-                padding: "0 40px",
-                borderRadius: "12px",
-                border: "none",
-                background: "#91564E",
-                color: "#FFFFFF",
-                fontSize: "16px",
-                fontWeight: 500,
-                cursor: "pointer",
-                transition: "all 150ms ease",
-              }}
-            >
-              Done
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div
-      style={{
-        height: "100vh",
-        background: "#FFF8E3",
-        display: "flex",
-        flexDirection: "column",
-        overflow: "hidden",
-        fontFamily: "'Outfit', sans-serif",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1024px",
-          margin: "0 auto",
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          paddingLeft: "24px",
-          paddingRight: "24px",
-        }}
-      >
+    <div style={{
+      minHeight: "100vh",
+      background: "#111111",
+      fontFamily: "'Outfit', sans-serif",
+      padding: "0 24px 48px",
+    }}>
+      <div style={{ maxWidth: "640px", margin: "0 auto" }}>
+
         {/* Header */}
-        <header
-          style={{
-            paddingTop: "24px",
-            paddingBottom: "16px",
-            display: "flex",
-            alignItems: "center",
-            gap: "16px",
-            flexShrink: 0,
-          }}
-        >
+        <div style={{ padding: "24px 0 20px", display: "flex", alignItems: "center", gap: "16px" }}>
           <button
             onClick={() => navigate("/menu")}
             style={{
-              width: "40px",
-              height: "40px",
-              borderRadius: "12px",
-              border: "1px solid #EAEAEA",
-              background: "#FFFFFF",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
+              width: "40px", height: "40px", borderRadius: "10px",
+              border: "1px solid rgba(255,255,255,0.08)", background: "none",
+              color: "#9A9080", fontSize: "18px", cursor: "pointer",
+              display: "flex", alignItems: "center", justifyContent: "center",
             }}
           >
-            <span style={{ color: "#1E1E1E", fontSize: "18px" }}>←</span>
+            ←
           </button>
-          <h1
-            style={{
-              fontFamily: "'Instrument Serif', serif",
-              fontSize: "24px",
-              fontWeight: 400,
-              color: "#1E1E1E",
-            }}
-          >
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "24px", fontWeight: 500, color: "#F5F0E8" }}>
             Review Order
           </h1>
-        </header>
+        </div>
 
         {/* Items */}
-        <main
-          style={{
-            flex: 1,
-            overflowY: "auto",
-            marginTop: "16px",
-            paddingBottom: "32px",
-            scrollbarWidth: "none",
-          }}
-        >
+        <div style={{ background: "#1C1C1C", borderRadius: "16px", overflow: "hidden", marginBottom: "16px" }}>
           {items.length === 0 ? (
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                height: "100%",
-              }}
-            >
-              <p style={{ color: "#666666" }}>Your cart is empty</p>
+            <div style={{ padding: "48px", textAlign: "center", color: "#5A5248" }}>
+              <div style={{ fontSize: "36px", marginBottom: "12px" }}>🛒</div>
+              <p>Your cart is empty.</p>
               <button
                 onClick={() => navigate("/menu")}
-                style={{
-                  marginTop: "16px",
-                  fontSize: "14px",
-                  textDecoration: "underline",
-                  color: "#91564E",
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                }}
+                style={{ marginTop: "16px", padding: "10px 24px", borderRadius: "10px", border: "1px solid rgba(200,149,108,0.3)", background: "none", color: "#C8956C", cursor: "pointer", fontSize: "14px" }}
               >
                 Browse Menu
               </button>
             </div>
-          ) : (
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-              {items.map((item) => (
-                <div
-                  key={item.id}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    padding: "16px",
-                    borderRadius: "16px",
-                    background: "#FFFFFF",
-                    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.06)",
-                  }}
-                >
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <h3
-                      style={{
-                        fontSize: "16px",
-                        fontWeight: 500,
-                        color: "#1E1E1E",
-                        marginBottom: "4px",
-                      }}
-                    >
-                      {item.name}
-                    </h3>
-                    {/* Display Customizations */}
-                    {(item.customization?.spice || (item.customization?.extras && item.customization.extras.length > 0)) && (
-                      <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
-                        {item.customization.spice && (
-                          <span style={{ fontSize: "12px", color: "#91564E", fontWeight: 500 }}>
-                            {item.customization.spice}
-                          </span>
-                        )}
-                        {item.customization.extras?.map(extra => (
-                          <span key={extra.name} style={{ fontSize: "12px", color: "#666666" }}>
-                            +{extra.name}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                  <div style={{ textAlign: "right", display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
-                    <span style={{ fontSize: "14px", color: "#666666" }}>
-                      ×{item.quantity}
-                    </span>
-                    <span style={{ fontWeight: 500, color: "#1E1E1E" }}>
-                      ₹{(item.price + (item.customization?.extras?.reduce((s, e) => s + (e.price || 0), 0) || 0)) * item.quantity}
-                    </span>
-                  </div>
-                </div>
-              ))}
+          ) : items.map((item, i) => (
+            <div key={item.id} style={{
+              display: "flex", alignItems: "center", gap: "14px",
+              padding: "16px 20px",
+              borderBottom: i < items.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none",
+            }}>
+              <div style={{ flex: 1 }}>
+                <p style={{ fontSize: "14px", fontWeight: 500, color: "#F5F0E8", marginBottom: "4px" }}>{item.name}</p>
+                <p style={{ fontSize: "13px", color: "#C8956C" }}>₹{item.price} × {item.quantity} = ₹{item.price * item.quantity}</p>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <button onClick={() => updateQty(item.id, item.quantity - 1)} style={{ width: "28px", height: "28px", borderRadius: "6px", border: "1px solid rgba(255,255,255,0.1)", background: "none", color: "#9A9080", cursor: "pointer" }}>−</button>
+                <span style={{ fontSize: "14px", fontWeight: 600, color: "#F5F0E8", minWidth: "20px", textAlign: "center" }}>{item.quantity}</span>
+                <button onClick={() => updateQty(item.id, item.quantity + 1)} style={{ width: "28px", height: "28px", borderRadius: "6px", border: "1px solid rgba(255,255,255,0.1)", background: "none", color: "#9A9080", cursor: "pointer" }}>+</button>
+              </div>
             </div>
-          )}
-        </main>
+          ))}
+        </div>
 
-        {/* Footer */}
+        {/* Summary */}
         {items.length > 0 && (
-          <div
-            style={{
-              paddingTop: "16px",
-              paddingBottom: "24px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexShrink: 0,
-              background: "#FFF8E3",
-              borderTop: "1px solid #EAEAEA",
-            }}
-          >
-            <div>
-              <p style={{ fontSize: "12px", color: "#666666", marginBottom: "4px" }}>
-                {items.reduce((s, i) => s + i.quantity, 0)} items
-              </p>
-              <p style={{ fontSize: "18px", fontWeight: 500, color: "#1E1E1E" }}>
-                ₹{getTotal()}
-              </p>
+          <div style={{ background: "#1C1C1C", borderRadius: "16px", padding: "20px", marginBottom: "24px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
+              <span style={{ fontSize: "14px", color: "#9A9080" }}>Subtotal</span>
+              <span style={{ fontSize: "14px", color: "#F5F0E8" }}>₹{getTotal()}</span>
             </div>
-            <div style={{ display: "flex", gap: "12px" }}>
-              <button
-                onClick={() => navigate("/menu")}
-                style={{
-                  height: "48px",
-                  padding: "0 24px",
-                  borderRadius: "12px",
-                  border: "1px solid #EAEAEA",
-                  color: "#444444",
-                  background: "transparent",
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  cursor: "pointer",
-                }}
-              >
-                Edit
-              </button>
-              <button
-                onClick={handleConfirm}
-                style={{
-                  height: "48px",
-                  padding: "0 24px",
-                  borderRadius: "12px",
-                  border: "none",
-                  background: "#91564E",
-                  color: "#FFFFFF",
-                  fontSize: "16px",
-                  fontWeight: 500,
-                  letterSpacing: "0.01em",
-                  cursor: "pointer",
-                  transition: "all 150ms ease",
-                }}
-              >
-                Confirm Order
-              </button>
+            <div style={{ display: "flex", justifyContent: "space-between", paddingTop: "12px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+              <span style={{ fontSize: "16px", fontWeight: 600, color: "#F5F0E8" }}>Total</span>
+              <span style={{ fontSize: "20px", fontWeight: 700, color: "#C8956C" }}>₹{getTotal()}</span>
             </div>
           </div>
+        )}
+
+        {/* CTA */}
+        {items.length > 0 && (
+          <button
+            onClick={handleConfirm}
+            style={{
+              width: "100%", height: "56px", borderRadius: "14px",
+              border: "none", background: "#C8956C",
+              color: "#fff", fontSize: "16px", fontWeight: 600,
+              cursor: "pointer",
+              boxShadow: "0 8px 24px rgba(200,149,108,0.3)",
+              transition: "opacity 0.2s",
+            }}
+          >
+            Place Order →
+          </button>
         )}
       </div>
     </div>
