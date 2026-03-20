@@ -1,0 +1,27 @@
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env/
+
+# IDE / System
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Project Artifacts
+.gemini/
+brain/
+*.log
+*.webp
+*.png
+!frontend/public/images/

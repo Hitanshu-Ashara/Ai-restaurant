@@ -1,0 +1,1204 @@
+Design Theme:
+- Light Minimal Café
+
+Core Feel:
+- Warm
+- Premium
+- Friendly
+- Modern
+
+Experience Goals:
+- User should feel relaxed and welcomed
+- UI should feel clean but not cold
+- Interaction should feel effortless and smooth
+
+Visual Style Rules:
+- Use light backgrounds (no dark UI)
+- Avoid harsh contrasts (no pure black on pure white)
+- Prefer soft tones over bright or neon colors
+- Keep interface breathable (high spacing, low clutter)
+
+Design Personality:
+- Not playful
+- Not corporate
+- Not tech-heavy
+- Balanced between café warmth and modern simplicity
+
+Clarity Rules:
+- Every element must have a purpose
+- No decorative elements without function
+- No visual noise
+
+Hierarchy Rules:
+- Important actions must stand out clearly
+- Secondary elements must be subtle
+- Text readability is highest priority
+
+AI Restrictions:
+- Do NOT introduce new styles outside this theme
+- Do NOT use vibrant or flashy colors
+- Do NOT create dense or crowded layouts
+
+Color Philosophy:
+- Warm light background
+- Soft contrast
+- Premium café tone
+- No harsh black-white contrast
+
+--------------------------------------------------
+
+Base Colors:
+
+Background Primary:
+- #FFF8E3
+- Usage: Main screen background
+
+Background Secondary:
+- #FFFFFF
+- Usage: Cards, modals, elevated surfaces
+
+Divider / Subtle Background:
+- #F6F6F6
+- Usage: Sections, separators
+
+--------------------------------------------------
+
+Accent Color:
+
+Primary Accent:
+- #91564E
+- Usage:
+  - Primary buttons
+  - Active states
+  - Highlights
+  - Important actions
+
+Rules:
+- Accent color must NOT be overused
+- Only for actions and highlights
+
+--------------------------------------------------
+
+Text Colors:
+
+Primary Text:
+- #1E1E1E
+- Usage: Headings, important text
+
+Secondary Text:
+- #444444
+- Usage: Body text
+
+Tertiary Text:
+- #666666
+- Usage: Labels, metadata
+
+Disabled Text:
+- #B2B2B2
+
+--------------------------------------------------
+
+Border / Stroke Colors:
+
+Light Border:
+- #EAEAEA
+
+Medium Border:
+- #D6D6D6
+
+--------------------------------------------------
+
+Gray Scale (STRICT USAGE):
+
+Allowed Shades:
+#000000
+#1E1E1E
+#2E2E2E
+#3C3C3C
+#444444
+#666666
+#939393
+#B2B2B2
+#CCCCCC
+#D6D6D6
+#EAEAEA
+#F6F6F6
+#FFFFFF
+
+Rules:
+- Only these shades allowed
+- No new gray values allowed
+
+--------------------------------------------------
+
+Contrast Rules:
+
+- Never use pure black (#000000) on #FFF8E3
+- Prefer #1E1E1E for readability
+- Maintain soft contrast (avoid harsh UI)
+
+--------------------------------------------------
+
+AI Restrictions:
+
+- Do NOT generate new colors
+- Do NOT use gradients
+- Do NOT use bright or neon colors
+- Do NOT use shadows with color tint
+- Use only defined palette
+
+--------------------------------------------------
+
+Typography Philosophy:
+- Clean modern base with elegant highlights
+- Balance between readability and premium feel
+- Serif used for emotion, sans used for clarity
+
+--------------------------------------------------
+
+Font Families:
+
+Primary Font (Sans):
+- Outfit
+- Usage:
+  - Body text
+  - Buttons
+  - UI elements
+  - Labels
+  - Navigation
+
+Secondary Font (Serif):
+- Instrument Serif
+- Usage:
+  - Headings
+  - Hero text
+  - Important highlights
+
+--------------------------------------------------
+
+Font Usage Rules:
+
+- Never use serif for long paragraphs
+- Never use sans for hero headings
+- Maintain clear hierarchy between serif and sans
+
+--------------------------------------------------
+
+Font Sizes:
+
+H1 (Hero Heading):
+- Font: Instrument Serif
+- Size: 32px
+- Weight: Regular
+- Line Height: 120%
+
+H2 (Section Heading):
+- Font: Instrument Serif
+- Size: 24px
+- Weight: Regular
+- Line Height: 130%
+
+H3 (Sub Heading):
+- Font: Outfit
+- Size: 18px
+- Weight: Medium
+- Line Height: 140%
+
+Body (Primary Text):
+- Font: Outfit
+- Size: 16px
+- Weight: Regular
+- Line Height: 150%
+
+Small Text:
+- Font: Outfit
+- Size: 14px
+- Weight: Regular
+- Line Height: 140%
+
+Micro Text:
+- Font: Outfit
+- Size: 12px
+- Weight: Regular
+
+--------------------------------------------------
+
+Font Weights:
+
+Outfit:
+- Regular (400)
+- Medium (500)
+- SemiBold (600)
+
+Instrument Serif:
+- Regular only (keep elegant)
+
+--------------------------------------------------
+
+Letter Spacing:
+
+- Headings: 0 to -1%
+- Body: 0%
+- Buttons: +1% (slight clarity)
+
+--------------------------------------------------
+
+Text Styling Rules:
+
+- No ALL CAPS for long text
+- Buttons can be slightly uppercase
+- Avoid bold overuse
+- Prefer spacing over weight for hierarchy
+
+--------------------------------------------------
+
+Hierarchy Rules:
+
+- Serif = attention
+- Sans = readability
+- Size > weight for importance
+
+--------------------------------------------------
+
+AI Restrictions:
+
+- Do NOT introduce new fonts
+- Do NOT change font sizes
+- Do NOT mix serif and sans randomly
+- Do NOT use decorative fonts
+- Do NOT overuse bold text
+
+--------------------------------------------------
+
+Spacing Philosophy:
+- Spacious and breathable layout
+- Focus on comfort and clarity
+- Avoid crowding at all costs
+
+--------------------------------------------------
+
+Base Unit:
+- 8px
+
+--------------------------------------------------
+
+Spacing Scale (ONLY allowed values):
+
+- 4px  (micro spacing, rare use)
+- 8px  (tight spacing)
+- 16px (default spacing)
+- 24px (section spacing)
+- 32px (large spacing)
+- 40px (extra large spacing)
+- 48px (section separation)
+- 64px (major separation)
+
+--------------------------------------------------
+
+Usage Rules:
+
+Micro (4px):
+- Icon + text adjustments only
+
+Small (8px):
+- Between label and input
+- Tight UI elements
+
+Default (16px):
+- Between text elements
+- Inside components
+
+Medium (24px):
+- Between sections inside cards
+
+Large (32px):
+- Between major UI blocks
+
+XL (40–48px):
+- Between sections on screen
+
+XXL (64px):
+- Between major screen zones
+
+--------------------------------------------------
+
+Padding Rules:
+
+Cards:
+- 16px or 24px (never random)
+
+Buttons:
+- Vertical: 12px–16px
+- Horizontal: 16px–24px
+
+Screen Padding:
+- Left/Right: 24px minimum
+
+--------------------------------------------------
+
+Layout Rules:
+
+- Always maintain equal spacing rhythm
+- Avoid uneven gaps
+- Use consistent vertical flow
+
+--------------------------------------------------
+
+Density Rules:
+
+- Prefer more spacing over more content
+- Do NOT try to fit too many elements
+- Empty space is part of design
+
+--------------------------------------------------
+
+Alignment Rules:
+
+- All elements must align to same spacing grid
+- No random placement
+- Maintain vertical rhythm
+
+--------------------------------------------------
+
+AI Restrictions:
+
+- Do NOT use values outside spacing scale
+- Do NOT create tight or crowded layouts
+- Do NOT reduce spacing to fit more items
+- Do NOT use inconsistent padding
+
+--------------------------------------------------
+
+Device:
+- Tablet
+
+Orientation:
+- Landscape only
+
+Layout Style:
+- Hybrid (Top Categories + Item Grid)
+
+--------------------------------------------------
+
+Grid System:
+
+- Columns: 12
+- Layout Type: Flexible grid
+- Gutter: 16px
+- Margin (Left & Right): 24px minimum
+
+--------------------------------------------------
+
+Screen Structure:
+
+Top Section (Header Area):
+- Height: Auto
+- Contains:
+  - Greeting / AI message
+  - Optional search or voice indicator
+
+Below Header:
+
+Category Navigation Bar:
+- Horizontal scrollable
+- Positioned at top below header
+- Height: 48px–64px
+- Spacing between categories: 16px
+
+--------------------------------------------------
+
+Main Content Area:
+
+- Item Grid Layout
+- 2 to 3 columns (depending on screen width)
+- Grid gap: 24px
+
+Each row must align perfectly
+No uneven spacing allowed
+
+--------------------------------------------------
+
+Bottom Section:
+
+Sticky Cart Bar:
+- Fixed at bottom
+- Always visible
+- Height: 64px–80px
+
+--------------------------------------------------
+
+Layout Behavior Rules:
+
+- Categories remain accessible at top
+- Content scrolls vertically
+- Cart bar never scrolls away
+
+--------------------------------------------------
+
+Spacing Rules:
+
+- Header → Categories: 24px
+- Categories → Grid: 24px
+- Grid → Bottom Cart: 32px
+
+--------------------------------------------------
+
+Alignment Rules:
+
+- All elements aligned to grid
+- No floating elements
+- Maintain strict horizontal alignment
+
+--------------------------------------------------
+
+Responsive Rules (Tablet only):
+
+- Do NOT switch to mobile layout
+- Maintain grid consistency
+- Adjust only column count if needed
+
+--------------------------------------------------
+
+AI Restrictions:
+
+- Do NOT change layout type
+- Do NOT move categories to side
+- Do NOT create full-screen scroll layout
+- Do NOT remove sticky cart bar
+- Do NOT break grid alignment
+
+--------------------------------------------------
+
+Button Philosophy:
+- Soft, friendly, and premium
+- Clearly visible but not aggressive
+- Comfortable to tap on tablet
+
+--------------------------------------------------
+
+Shape:
+
+- Border Radius: 12px
+- Style: Rounded (not pill, not sharp)
+
+--------------------------------------------------
+
+Size:
+
+Height:
+- Default: 48px
+- Large (Primary CTA): 56px
+
+Padding:
+- Horizontal: 24px
+- Vertical: 12px–16px
+
+--------------------------------------------------
+
+Typography:
+
+- Font: Outfit
+- Size: 16px
+- Weight: Medium (500)
+- Letter Spacing: +1%
+
+Text Style:
+- Slight uppercase allowed
+- Avoid full uppercase for long labels
+
+--------------------------------------------------
+
+Color:
+
+Primary Button:
+- Background: #91564E
+- Text: #FFFFFF
+
+--------------------------------------------------
+
+States:
+
+Default:
+- Background: #91564E
+
+Hover:
+- Background: slightly darker (#7F4B44 approx)
+- No shadow
+
+Active (Pressed):
+- Background: slightly deeper tone
+- Scale: 98% (subtle press effect)
+
+Disabled:
+- Background: #D6D6D6
+- Text: #B2B2B2
+
+--------------------------------------------------
+
+Interaction Behavior:
+
+- Tap feedback must be instant
+- Smooth transition (150–200ms)
+- No heavy animation
+
+--------------------------------------------------
+
+Spacing Rules:
+
+- Button to button: 16px minimum
+- Button inside card: 16px padding from edges
+
+--------------------------------------------------
+
+Hierarchy Rules:
+
+Primary Action:
+- Always solid accent button
+
+Secondary Action:
+- Use text or subtle style (not competing with primary)
+
+--------------------------------------------------
+
+AI Restrictions:
+
+- Do NOT change button color
+- Do NOT add gradients
+- Do NOT add shadows unless defined
+- Do NOT change border radius
+- Do NOT create multiple button styles beyond defined
+- Do NOT use outline buttons unless explicitly defined later
+
+--------------------------------------------------
+
+Card Philosophy:
+- Visually appealing but minimal
+- Focus on food image + quick decision making
+- Clean, premium, and breathable
+
+--------------------------------------------------
+
+Card Container:
+
+Background:
+- #FFFFFF
+
+Border Radius:
+- 16px
+
+Elevation:
+- Very soft shadow only
+- Shadow:
+  - Y: 4px
+  - Blur: 12px
+  - Opacity: low (subtle)
+
+--------------------------------------------------
+
+Card Layout Structure:
+
+[ Top Image ]
+[ Content Section ]
+    - Name
+    - Price
+[ Add Button ]
+
+--------------------------------------------------
+
+Image:
+
+Position:
+- Top of card
+
+Height:
+- 140px – 160px
+
+Width:
+- Full width of card
+
+Style:
+- Cover fit
+- No border
+- Top corners rounded (match card radius)
+
+--------------------------------------------------
+
+Content Section:
+
+Padding:
+- 16px
+
+Spacing Inside:
+- Name → Price: 8px
+- Price → Button: 16px
+
+--------------------------------------------------
+
+Text:
+
+Name:
+- Font: Outfit
+- Size: 16px
+- Weight: Medium
+- Color: #1E1E1E
+- Max Lines: 2 (truncate if long)
+
+Price:
+- Font: Outfit
+- Size: 14px
+- Weight: Regular
+- Color: #444444
+
+--------------------------------------------------
+
+Add Button:
+
+Type:
+- Primary button (uses button system)
+
+Size:
+- Height: 40px
+- Width: Full OR fit-content (aligned right)
+
+Label:
+- "Add"
+
+Placement:
+- Bottom of content section
+
+--------------------------------------------------
+
+Interaction:
+
+Tap on Card:
+- Adds item to cart
+
+Tap on Button:
+- Adds item to cart (same action)
+
+Feedback:
+- Button changes to:
+  - "Added" OR quantity selector (future)
+
+--------------------------------------------------
+
+Grid Behavior:
+
+- Cards must be equal height
+- Maintain consistent spacing (24px gap)
+- No misalignment allowed
+
+--------------------------------------------------
+
+Spacing Around Card:
+
+- Between cards: 24px
+- Inside grid: follow layout system
+
+--------------------------------------------------
+
+AI Restrictions:
+
+- Do NOT add extra elements (rating, badges, etc.)
+- Do NOT change card structure
+- Do NOT increase shadow intensity
+- Do NOT add borders unless defined
+- Do NOT overcrowd content
+- Do NOT change image position
+
+--------------------------------------------------
+
+Cart Philosophy:
+- Minimal presence
+- Always visible but never distracting
+- Supports voice, not replaces it
+
+--------------------------------------------------
+
+Style:
+
+- Minimal strip
+- Fixed at bottom
+- Clean and lightweight
+
+--------------------------------------------------
+
+Container:
+
+Height:
+- 64px
+
+Background:
+- #FFFFFF
+
+Top Border:
+- 1px solid #EAEAEA
+
+No shadow
+No elevation
+
+--------------------------------------------------
+
+Content Layout:
+
+Left Side:
+- Total Price (Primary focus)
+
+Right Side:
+- Optional subtle CTA (low emphasis)
+
+--------------------------------------------------
+
+Content Details:
+
+Total Price:
+- Font: Outfit
+- Size: 16px
+- Weight: Medium
+- Color: #1E1E1E
+
+Item Count (optional):
+- Small text
+- Example: "3 items"
+- Size: 12px
+- Color: #666666
+
+--------------------------------------------------
+
+CTA Button:
+
+Presence:
+- Optional (low priority)
+
+Style:
+- Small, subtle
+- Not visually dominant
+
+Label Options:
+- "View"
+- "Review"
+- OR hidden completely
+
+Rules:
+- Must NOT compete with voice interaction
+- Must feel secondary
+
+--------------------------------------------------
+
+Interaction Behavior:
+
+- Updates instantly when item added
+- Slight fade/scale animation (subtle)
+- No aggressive motion
+
+--------------------------------------------------
+
+Voice Integration:
+
+- User can say:
+  - "Show my order"
+  - "What have I added?"
+  - "Checkout"
+
+- UI must respond by:
+  - Expanding cart OR
+  - Navigating to summary
+
+--------------------------------------------------
+
+Visibility Rules:
+
+- Always visible
+- Never overlaps content incorrectly
+- Must not block important UI
+
+--------------------------------------------------
+
+AI Restrictions:
+
+- Do NOT make cart dominant
+- Do NOT add large buttons
+- Do NOT add multiple actions
+- Do NOT convert into full card UI
+- Do NOT distract from voice flow
+
+--------------------------------------------------
+
+Voice UI Philosophy:
+- Voice is primary interaction
+- UI supports, not dominates
+- Calm, subtle, and premium feedback
+
+--------------------------------------------------
+
+Voice States:
+
+1. Idle
+2. Listening
+3. Processing
+4. Responding
+
+Each state must have clear but subtle visual feedback
+
+--------------------------------------------------
+
+1. Idle State:
+
+- Mic icon visible (not dominant)
+- No animation
+- Soft presence
+
+Text (optional):
+- "Tap or speak to order"
+
+--------------------------------------------------
+
+2. Listening State:
+
+Trigger:
+- User taps mic OR starts speaking
+
+UI Changes:
+- Mic becomes active
+- Soft pulse animation
+
+Animation Rules:
+- Slow breathing effect
+- Scale: 100% → 110%
+- Duration: ~1.5s loop
+- No harsh glow
+- No neon effect
+
+Transcript:
+
+- MUST be visible
+- Real-time text display
+- Positioned near top or center
+
+Transcript Style:
+- Font: Outfit
+- Size: 16px
+- Color: #1E1E1E
+- Background: none or very subtle
+
+Behavior:
+- Updates word-by-word
+- Handles pauses gracefully
+
+--------------------------------------------------
+
+3. Processing State:
+
+Trigger:
+- User stops speaking
+
+UI Changes:
+- Mic animation stops
+- Show subtle loader
+
+Loader Style:
+- Minimal (dots or fade)
+- No spinner overload
+
+Text:
+- "Understanding..." (optional)
+
+Duration:
+- Keep short and smooth
+
+--------------------------------------------------
+
+4. Responding State:
+
+Trigger:
+- AI gives response
+
+UI Changes:
+- Show AI message text
+
+Style:
+- Clean text block
+- No chat bubbles (keep minimal)
+
+Text Style:
+- Font: Outfit
+- Size: 16px
+- Color: #444444
+
+Optional:
+- Soft fade-in animation
+
+--------------------------------------------------
+
+Voice Feedback Rules:
+
+- Always show transcript (build trust)
+- Keep animations subtle
+- Avoid loud visual effects
+
+--------------------------------------------------
+
+Error Handling:
+
+If voice unclear:
+
+UI:
+- Show transcript with issue
+- Example: "Did you mean paneer pizza?"
+
+Behavior:
+- Suggest correction
+- Allow retry
+
+--------------------------------------------------
+
+Noise Handling:
+
+- Show what AI heard
+- Allow quick correction via tap
+- Never assume silently
+
+--------------------------------------------------
+
+Accessibility:
+
+- Always allow manual fallback (buttons)
+- Voice is primary, not exclusive
+
+--------------------------------------------------
+
+AI Restrictions:
+
+- Do NOT add heavy animations
+- Do NOT use glowing neon effects
+- Do NOT create chat-style UI
+- Do NOT hide transcript
+- Do NOT overload screen with voice visuals
+
+--------------------------------------------------
+
+Screen Name:
+- Home / Start Screen
+
+Purpose:
+- First interaction point
+- Introduce voice system
+- Allow user to start naturally (voice-first)
+
+--------------------------------------------------
+
+Screen Background:
+
+- Color: #FFF8E3
+
+--------------------------------------------------
+
+Layout Structure (Top → Bottom):
+
+1. Top Area (Greeting)
+2. Center Area (Voice Interaction)
+3. Bottom Area (Minimal Info / Hint)
+
+--------------------------------------------------
+
+1. Top Area:
+
+Position:
+- Top with 24px padding
+
+Content:
+- Greeting text
+
+Text:
+- Example: "Welcome to D&D Café"
+
+Style:
+- Font: Instrument Serif
+- Size: 24px
+- Color: #1E1E1E
+
+Spacing:
+- Below: 24px
+
+--------------------------------------------------
+
+2. Center Area (MAIN FOCUS):
+
+Vertical Centered Block
+
+Contains:
+
+A. Primary Message:
+- "What would you like to order?"
+
+Style:
+- Font: Instrument Serif
+- Size: 32px
+- Color: #1E1E1E
+- Center aligned
+
+Spacing below: 24px
+
+--------------------------------------------------
+
+B. Voice UI Block:
+
+Mic Icon:
+- Centered
+- Size: 64px–72px
+- Color: #91564E
+
+State:
+- Idle by default
+
+Below Mic:
+
+Live Transcript Area:
+- Empty initially
+- Appears when user speaks
+
+Style:
+- Font: Outfit
+- Size: 16px
+- Color: #1E1E1E
+- Center aligned
+
+--------------------------------------------------
+
+C. Supporting Hint Text:
+
+Text:
+- "You can speak or tap to start"
+
+Style:
+- Font: Outfit
+- Size: 14px
+- Color: #666666
+
+Spacing:
+- Top: 16px
+
+--------------------------------------------------
+
+3. Bottom Area:
+
+Position:
+- Bottom with 24px padding
+
+Content:
+- Small instruction text
+
+Text:
+- "Voice assistant is always active for faster ordering"
+
+Style:
+- Font: Outfit
+- Size: 12px
+- Color: #666666
+- Center aligned
+
+--------------------------------------------------
+
+Spacing Rules:
+
+- Maintain vertical rhythm using spacing system
+- No overcrowding
+- Center area must feel open and breathable
+
+--------------------------------------------------
+
+Interaction Behavior:
+
+Tap Anywhere:
+- Activates voice listening
+
+Mic Tap:
+- Activates listening
+
+Voice Trigger:
+- Starts automatically when user speaks
+
+--------------------------------------------------
+
+Voice-First Principle:
+
+- Minimize touch interactions
+- UI must not rely on buttons
+- Voice is primary input method
+
+--------------------------------------------------
+
+AI Restrictions:
+
+- Do NOT add extra buttons
+- Do NOT clutter screen
+- Do NOT add unnecessary UI elements
+- Keep interface minimal and focused
+
+--------------------------------------------------
+
+Voice System Behavior:
+
+--------------------------------------------------
+
+Default State:
+- Voice assistant is always active (passive listening)
+
+--------------------------------------------------
+
+Idle / Hold Behavior:
+
+Trigger:
+- No user input for 5 seconds
+OR
+- User says: "Go on hold"
+
+Action:
+- System enters HOLD state
+
+UI Changes:
+- Mic becomes inactive (dimmed)
+- No animation
+- Optional text: "On hold"
+
+--------------------------------------------------
+
+Wake-Up Trigger:
+
+Trigger Phrase:
+- "Hey D&D"
+
+Action:
+- System exits HOLD state
+- Returns to active listening
+
+UI Changes:
+- Mic becomes active
+- Resume listening animation
+
+--------------------------------------------------
+
+Listening Rules:
+
+- Voice-first interaction always preferred
+- Touch is fallback only
+
+--------------------------------------------------
+
+Feedback Rules:
+
+- Always show system state clearly:
+  - Listening
+  - Hold
+  - Processing
+
+--------------------------------------------------
+
+AI Restrictions:
+
+- Do NOT remove wake phrase
+- Do NOT auto-activate without user intent
+- Do NOT keep system always aggressively listening
+- Must respect hold state
+
+--------------------------------------------------
