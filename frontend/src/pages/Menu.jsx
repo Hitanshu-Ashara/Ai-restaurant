@@ -118,7 +118,7 @@ export default function Menu() {
                 setIsListening={setIsListening}
                 onTranscript={(text) => setTranscript(text)}
                 onAiResponse={(res) => {
-                  if (res?.response) setAiMessage(res.response);
+                  if (res?.message) setAiMessage(res.message);
                 }}
                 size="large"
               />

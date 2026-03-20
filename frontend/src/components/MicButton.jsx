@@ -9,7 +9,7 @@ export default function MicButton({
   onAiResponse,
   size = "large",
 }) {
-  const { items } = useCart();
+  const { addItem } = useCart();
 
   const handleMicClick = async () => {
     if (isListening) return;
@@ -17,16 +17,21 @@ export default function MicButton({
     try {
       const transcript = await startListening();
       if (onTranscript) onTranscript(transcript);
+
       if (transcript) {
-        try {
-          const response = await sendMessage(transcript, items);
-          if (onAiResponse) onAiResponse(response);
-        } catch {
-          // Backend not available
+        const response = await sendMessage(transcript, []);
+
+        // Auto-add item to cart if Gemini says so
+        if (response?.action === "add" && response?.item) {
+          addItem(response.item);
         }
+
+        // Show AI message in the UI
+        if (onAiResponse) onAiResponse(response);
       }
     } catch (err) {
-      console.error("Speech error:", err);
+      console.error("Speech or AI error:", err);
+      if (onAiResponse) onAiResponse({ message: "Sorry, I couldn't connect to the AI. Please try again.", action: "none" });
     } finally {
       setIsListening(false);
     }
