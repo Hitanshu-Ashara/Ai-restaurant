@@ -6,6 +6,8 @@ import Menu from "./pages/Menu";
 import Confirmation from "./pages/Confirmation";
 import Waiter from "./pages/Waiter";
 import History from "./pages/History";
+import Kitchen from "./pages/Kitchen";
+import Feedback from "./pages/Feedback";
 
 function Navigation() {
   const location = useLocation();
@@ -48,8 +50,11 @@ function Navigation() {
         }}>
           <Link to="/menu" onClick={() => setIsOpen(false)} style={{ textDecoration: "none", padding: "12px 16px", borderRadius: "10px", background: location.pathname === "/menu" ? "#C8956C" : "transparent", color: location.pathname === "/menu" ? "#fff" : "#9A9080", fontWeight: 600 }}>🍽️ Digital Menu</Link>
           <Link to="/history" onClick={() => setIsOpen(false)} style={{ textDecoration: "none", padding: "12px 16px", borderRadius: "10px", background: location.pathname === "/history" ? "#C8956C" : "transparent", color: location.pathname === "/history" ? "#fff" : "#9A9080", fontWeight: 600 }}>🧾 Order History</Link>
-          <Link to="/waiter" onClick={() => setIsOpen(false)} style={{ textDecoration: "none", padding: "12px 16px", borderRadius: "10px", background: location.pathname === "/waiter" ? "#C8956C" : "transparent", color: location.pathname === "/waiter" ? "#fff" : "#9A9080", fontWeight: 600 }}>🪑 Waiter Dashboard</Link>
-          <Link to="/" onClick={() => setIsOpen(false)} style={{ textDecoration: "none", padding: "12px 16px", borderRadius: "10px", marginTop: "auto", color: "#5A5248", fontSize: "14px" }}>← Back to Start</Link>
+          <Link to="/waiter" onClick={() => setIsOpen(false)} style={{ textDecoration: "none", padding: "12px 16px", borderRadius: "10px", background: location.pathname === "/waiter" ? "#C8956C" : "transparent", color: location.pathname === "/waiter" ? "#fff" : "#9A9080", fontWeight: 600 }}>🛡️ Waiter Dashboard</Link>
+          <Link to="/kitchen" onClick={() => setIsOpen(false)} style={{ textDecoration: "none", padding: "12px 16px", borderRadius: "10px", background: location.pathname === "/kitchen" ? "#C8956C" : "transparent", color: location.pathname === "/kitchen" ? "#fff" : "#9A9080", fontWeight: 600 }}>🍳 Kitchen Display</Link>
+          <Link to="/feedback" onClick={() => setIsOpen(false)} style={{ textDecoration: "none", padding: "12px 16px", borderRadius: "10px", background: location.pathname === "/feedback" ? "#C8956C" : "transparent", color: location.pathname === "/feedback" ? "#fff" : "#9A9080", fontWeight: 600 }}>✨ Share Feedback</Link>
+          <hr style={{ borderColor: "rgba(255,255,255,0.05)", margin: "8px 0" }} />
+          <Link to="/" onClick={() => setIsOpen(false)} style={{ textDecoration: "none", padding: "12px 16px", borderRadius: "10px", color: "#5A5248", fontSize: "14px" }}>← Exit Experience</Link>
         </div>
       )}
     </>
@@ -68,6 +73,8 @@ function App() {
             <Route path="/confirmation" element={<Confirmation />} />
             <Route path="/waiter" element={<Waiter />} />
             <Route path="/history" element={<History />} />
+            <Route path="/kitchen" element={<Kitchen />} />
+            <Route path="/feedback" element={<Feedback />} />
           </Routes>
         </div>
       </Router>
